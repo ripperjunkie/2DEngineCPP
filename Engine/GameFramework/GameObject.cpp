@@ -18,12 +18,6 @@ void GameObject::BeginPlay()
 	if (!mTransformComp)
 	{		
 		mTransformComp = AddComponent<Transform>(transform.position, transform.rotation, transform.scale);
-		//if (mTransformComp)
-		//{
-		//	mTransformComp->SetPosition(transform.position);
-		//	mTransformComp->SetRotation(transform.rotation);
-		//	mTransformComp->SetScale(transform.scale);
-		//}
 	}
 
 	for (std::shared_ptr<Component> componentItr : mComponent)

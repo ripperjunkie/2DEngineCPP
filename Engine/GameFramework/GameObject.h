@@ -7,7 +7,7 @@
 #include "Engine/Components/PhysicsComponent.h"
 #include "Engine/Components/Rendering/RenderingComponent.h"
 #include "Engine/Components/Rendering/BoxRenderComponent.h"
-#include "Engine/Components/StateMachineComponent.h"
+
 
 
 #include <type_traits>
@@ -30,9 +30,9 @@ public:
 	~GameObject();
 
 	// Game event functions
-	virtual void BeginPlay(); // void Start()
-	virtual void EndPlay(); // void Destroy()
-	virtual void Tick(); // void Update()
+	virtual void BeginPlay();
+	virtual void EndPlay();
+	virtual void Tick();
 
 	// this template class can only be of type component
 	template <class T = Component>

@@ -32,7 +32,7 @@ public:
 	std::shared_ptr<HealthComponent> mHealthComp;
 	std::shared_ptr<ScoreComponent> mScoreComp;
 
-	// Collision stuff
+	// Collision related
 	CollisionEventSignature collisionDelegate;
 	void OnCollisionOverlap(std::shared_ptr<GameObject> otherActor);
 

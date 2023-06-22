@@ -146,6 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CoreMinimal.h" />
+    <ClInclude Include="Engine\Managers\GameObjectManager.h" />
+    <ClInclude Include="Engine\Managers\PhysicsEngine.h" />
+    <ClInclude Include="Engine\Managers\RenderingEngine.h" />
     <ClInclude Include="Engine\Managers\World.h" />
     <ClInclude Include="Engine\Public\EpicenterMath.h" />
     <ClInclude Include="Game\Private\Food.h" />
@@ -169,8 +173,9 @@
     <ClInclude Include="Engine\Public\EngineTypes.h" />
     <ClInclude Include="Engine\Public\SDL.h" />
     <ClInclude Include="Engine\Public\State.h" />
+    <ClInclude Include="Game\Private\Game.h" />
     <ClInclude Include="Game\Public\GameInterface.h" />
-    <ClInclude Include="Engine\Components\StateMachineComponent.h" />
+    <ClInclude Include="Engine\Components\ControllerFSM.h" />
     <ClInclude Include="Game\Components\HealthComponent.h" />
     <ClInclude Include="Game\Components\ScoreComponent.h" />
     <ClInclude Include="Engine\Managers\Random.h" />
@@ -202,13 +207,35 @@
     <ClCompile Include="Engine\Components\Rendering\LineBoxRenderComponent.cpp" />
     <ClCompile Include="Engine\Components\Rendering\LineCircleRenderComponent.cpp" />
     <ClCompile Include="Engine\Components\Rendering\TextRenderComponent.cpp" />
-    <ClCompile Include="Engine\Components\StateMachineComponent.cpp" />
+    <ClCompile Include="Engine\Components\ControllerFSM.cpp" />
     <ClCompile Include="Game\Components\HealthComponent.cpp" />
     <ClCompile Include="Game\Components\ScoreComponent.cpp" />
     <ClCompile Include="Engine\Managers\Random.cpp" />
     <ClCompile Include="Game\Components\SpawnerComponent.cpp" />
     <ClCompile Include="Game\Private\Player.cpp" />
     <ClCompile Include="Game\Private\UI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="Build\GameEngineXd.exe" />
+    <None Include="Build\GameEngineXd.pdb" />
+    <None Include="Build\libfreetype-6.dll" />
+    <None Include="Build\SDL2-gfx.dll" />
+    <None Include="Build\SDL2-ttf.dll" />
+    <None Include="Build\SDL2.dll" />
+    <None Include="Build\zlib1.dll" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Out\EngineX.lib" />
+    <Library Include="Out\EngineXd.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\04B_21.TTF" />
+    <Font Include="Resources\The Amazing Spider-Man.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\ConSumo.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

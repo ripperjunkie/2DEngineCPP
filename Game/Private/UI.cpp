@@ -9,8 +9,6 @@
 
 UI::UI(FTransform transform) : GameObject(transform)
 {
-	//mHealthCtr = playerHealth;
-	//mScoreCtr = playerScore;
 }
 
 UI::~UI()
@@ -32,11 +30,11 @@ void UI::Tick()
 {
 	if (!playerRef)
 		return;
-	auto health = playerRef->FindComponentByType<HealthComponent>();
-	auto score = playerRef->FindComponentByType<ScoreComponent>();
+	std::shared_ptr<HealthComponent> health = playerRef->FindComponentByType<HealthComponent>();
+	std::shared_ptr<ScoreComponent> score = playerRef->FindComponentByType<ScoreComponent>();
 
-	auto healthText = health->GetCurrentHealth();
-	auto scoreText = score->GetCurrentScore();
+	int healthText = health->GetCurrentHealth();
+	int scoreText = score->GetCurrentScore();
 
 
 
@@ -48,11 +46,6 @@ void UI::Tick()
 	{
 		mTextRenderComponent->SetText("GAME OVER");
 	}
-
-	// debug trick
-	//int assert = text->GetCurrentHealth();
-
-
 }
 
 void UI::EndPlay()

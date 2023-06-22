@@ -49,7 +49,7 @@
     <ClInclude Include="Engine\Components\Transform.h" />
     <ClInclude Include="Engine\Components\PhysicsComponent.h" />
     <ClInclude Include="Engine\Public\State.h" />
-    <ClInclude Include="Engine\Components\StateMachineComponent.h" />
+    <ClInclude Include="Engine\Components\ControllerFSM.h" />
     <ClInclude Include="Engine\Managers\CollisionEngine.h" />
     <ClInclude Include="Engine\Managers\Random.h" />
     <ClInclude Include="Game\Components\HealthComponent.h" />
@@ -61,6 +61,11 @@
     <ClInclude Include="Engine\Managers\World.h" />
     <ClInclude Include="Engine\Public\EpicenterMath.h" />
     <ClInclude Include="Game\Private\UI.h" />
+    <ClInclude Include="CoreMinimal.h" />
+    <ClInclude Include="Engine\Managers\GameObjectManager.h" />
+    <ClInclude Include="Engine\Managers\PhysicsEngine.h" />
+    <ClInclude Include="Engine\Managers\RenderingEngine.h" />
+    <ClInclude Include="Game\Private\Game.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Private\Main.cpp">
@@ -120,7 +125,7 @@
     <ClCompile Include="Engine\Colliders\ColliderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Components\StateMachineComponent.cpp">
+    <ClCompile Include="Engine\Components\ControllerFSM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Managers\CollisionEngine.cpp">
@@ -153,5 +158,27 @@
     <ClCompile Include="Game\Private\UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="README.md" />
+    <None Include="Build\GameEngineXd.exe" />
+    <None Include="Build\GameEngineXd.pdb" />
+    <None Include="Build\libfreetype-6.dll" />
+    <None Include="Build\SDL2.dll" />
+    <None Include="Build\SDL2-gfx.dll" />
+    <None Include="Build\SDL2-ttf.dll" />
+    <None Include="Build\zlib1.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Out\EngineX.lib" />
+    <Library Include="Out\EngineXd.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\04B_21.TTF" />
+    <Font Include="Resources\The Amazing Spider-Man.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\ConSumo.wav" />
   </ItemGroup>
 </Project>

@@ -39,7 +39,6 @@ void PhysicsComponent::ComputePhysics()
 {
 	if (std::shared_ptr<Transform> transformComp = mOwner->FindComponentByType<Transform>())
 	{
-		// let Pedro add the layer parameter		
 		transformComp->SetPosition(transformComp->GetPosition() + mVelocity);
 	}
 }
