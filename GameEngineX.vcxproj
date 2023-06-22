@@ -146,7 +146,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Ball.h" />
     <ClInclude Include="Engine\Managers\World.h" />
     <ClInclude Include="Engine\Public\EpicenterMath.h" />
     <ClInclude Include="Game\Private\Food.h" />
@@ -180,7 +179,6 @@
     <ClInclude Include="Game\Private\UI.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Engine\Managers\World.cpp" />
     <ClCompile Include="Game\Private\Food.cpp" />
     <ClCompile Include="Game\Private\Enemy.cpp" />

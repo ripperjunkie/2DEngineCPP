@@ -50,7 +50,6 @@
     <ClInclude Include="Engine\Components\PhysicsComponent.h" />
     <ClInclude Include="Engine\Public\State.h" />
     <ClInclude Include="Engine\Components\StateMachineComponent.h" />
-    <ClInclude Include="Ball.h" />
     <ClInclude Include="Engine\Managers\CollisionEngine.h" />
     <ClInclude Include="Engine\Managers\Random.h" />
     <ClInclude Include="Game\Components\HealthComponent.h" />
@@ -122,9 +121,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Components\StateMachineComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Managers\CollisionEngine.cpp">
