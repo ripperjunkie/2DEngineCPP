@@ -4,18 +4,16 @@
 #include "Engine/Colliders/CircleColliderComponent.h"
 #include "Engine/Components/Rendering/CircleRenderComponent.h"
 #include "Engine/Components/PhysicsComponent.h"
+#include "Engine/Managers/World.h"
+#include "Engine/Public/EpicenterMath.h"
 
 // Game
 #include "../Components/HealthComponent.h"
 #include "../Components/ScoreComponent.h"
 
-#include "Engine/Managers/World.h"
-#include "Engine/Public/EpicenterMath.h"
-
 // Entities
 #include "Enemy.h"
 #include "Food.h"
-
 
 
 Player::Player(FTransform transform) : GameObject(transform)
@@ -54,7 +52,6 @@ void Player::BeginPlay()
 	{
 		mScoreComp = AddComponent<ScoreComponent>();
 	}
-
 
 	// delegate binding: call listen to collision and pass the delegate
 	if (mCircleColliderComp)
