@@ -41,21 +41,3 @@ protected:
 
 
 
-class TrafficLightFSM : public ControllerFSM
-{
-public:
-	TrafficLightFSM(std::shared_ptr<GameObject> owner) : ControllerFSM(owner)
-	{
-
-	}
-
-
-	virtual void BeginPlay() override;
-
-	virtual void EndPlay() override;
-
-	virtual void Tick() override;
-
-
-
-};

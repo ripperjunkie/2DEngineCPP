@@ -6,6 +6,8 @@
 
 
 class Player;
+class HealthComponent;
+class ScoreComponent;
 
 class UI : public GameObject
 {
@@ -19,13 +21,14 @@ public:
 	virtual void Tick();
 	virtual void EndPlay();
 
-	void RenderScore(TextRenderComponent textRenderer, int score, exVector2 positionToRender);
-	void RenderHealth(TextRenderComponent textRenderer, int score, exVector2 positionToRender);
 
 	std::shared_ptr<TextRenderComponent> mTextRenderComponent;
 
 	std::shared_ptr<Player> playerRef;
 private:
+	void UpdateUI();
+	std::shared_ptr<HealthComponent> health;
+	std::shared_ptr<ScoreComponent> score;
 
 	exVector2 ScorePosition;
 	exVector2 HealthPosition;

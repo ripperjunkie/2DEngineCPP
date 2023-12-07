@@ -15,6 +15,8 @@
 #include "Enemy.h"
 #include "Food.h"
 
+#define INITIAL_HP 5
+
 
 Player::Player(FTransform transform) : GameObject(transform)
 {
@@ -24,6 +26,8 @@ Player::Player(FTransform transform) : GameObject(transform)
 void Player::BeginPlay()
 {
 	GameObject::BeginPlay();
+
+	_initialTransform = transform;
 
 	float radius = 15.f;
 
@@ -43,9 +47,14 @@ void Player::BeginPlay()
 		mPhysComp = AddComponent<PhysicsComponent>();
 	}
 
+	// Creating health component
 	if (!mHealthComp)
 	{
-		mHealthComp = AddComponent<HealthComponent>(5);
+		mHealthComp = AddComponent<HealthComponent>(INITIAL_HP);
+		if (mHealthComp)
+		{			
+			mHealthComp->OnTakeDamageDelegate = std::bind(&Player::OnTakeDamage, this, std::placeholders::_1);
+		}
 	}
 
 	if (!mScoreComp)
@@ -65,6 +74,8 @@ void Player::BeginPlay()
 
 	mCircleRenderComp->SetColor(GREEN);
 	initPosition = mTransformComp->GetPosition();
+
+
 }
 
 void Player::Tick()
@@ -157,5 +168,30 @@ void Player::OnCollisionOverlap(std::shared_ptr<GameObject> otherActor)
 			mScoreComp->AddScore(1);
 
 		food->ResetPosition();
+	}
+}
+
+void Player::OnTakeDamage(int DamageTaken)
+{
+	if (!mHealthComp)
+	{
+		return;
+	}
+
+	// On Game over...
+	if (mHealthComp->GetCurrentHealth() <= 0)
+	{
+		// Reset player position
+		this->FindComponentByType<Transform>()->SetPosition(initPosition);
+
+
+		// reset player score
+		if (mScoreComp)
+			mScoreComp->SetScore(0);
+
+		// reset player life
+		mHealthComp->mCurrHealth = mHealthComp->mMaxHealth;
+
+
 	}
 }

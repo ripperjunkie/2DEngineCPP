@@ -3,8 +3,11 @@
 #include "Engine/GameFramework/GameObject.h"
 #include "3rdParty/SDL/SDL2-2.0.3/include/SDL_scancode.h"
 
-
 #include "Engine/Colliders/ColliderComponent.h"
+
+#include <functional>
+
+typedef std::function<void(int Damage)> OnTakeDamageSignature;
 
 class PhysicsComponent;
 class CircleRenderComponent;
@@ -19,7 +22,6 @@ public:
 	virtual void BeginPlay();
 	virtual void Tick();
 	virtual void EndPlay();
-
 	void Movement();
 	void ScreenBounds();
 
@@ -36,12 +38,15 @@ public:
 	CollisionEventSignature collisionDelegate;
 	void OnCollisionOverlap(std::shared_ptr<GameObject> otherActor);
 
-
-public:
 	const unsigned char* pState;
 	float movSpeed;
 	exVector2 direction;
 
+protected:
+	OnTakeDamageSignature OnTakeDamageDelegate;
+	void OnTakeDamage(int DamageTaken);
+
 private:
+	FTransform _initialTransform;
 
 };

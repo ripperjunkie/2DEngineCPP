@@ -2,12 +2,12 @@
 
 #include "Engine/Components/Component.h"
 #include "Engine/Public/EngineInterface.h"
-#include <functional>
+#include <functional> // function callbacks
 #include <string>
 
 class GameObject;
 
-/* Using this std::funciton allow us to use c++ standard libraries to create function pointers with
+/* Using this std::function allow us to use c++ standard libraries to create function pointers with
 more advanced features such as accessing private members*/
 typedef std::function<void(std::shared_ptr<GameObject> otherActor)> CollisionEventSignature;
 

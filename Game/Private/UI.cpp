@@ -20,23 +20,44 @@ void UI::BeginPlay()
 	if (!mTextRenderComponent)
 	{
 		mTextRenderComponent = AddComponent<TextRenderComponent>();
-
 	}
-	GameObject::BeginPlay();
 
+	if (playerRef)
+	{
+		health = playerRef->FindComponentByType<HealthComponent>();
+		score = playerRef->FindComponentByType<ScoreComponent>();
+	}
+
+	GameObject::BeginPlay();
 }
 
 void UI::Tick()
 {
-	if (!playerRef)
+	GameObject::Tick();
+
+	UpdateUI();
+}
+
+void UI::EndPlay()
+{
+}
+
+void UI::UpdateUI()
+{
+	if (!health)
+	{
+		health = playerRef->FindComponentByType<HealthComponent>();
 		return;
-	std::shared_ptr<HealthComponent> health = playerRef->FindComponentByType<HealthComponent>();
-	std::shared_ptr<ScoreComponent> score = playerRef->FindComponentByType<ScoreComponent>();
+	}
+
+	if (!score)
+	{
+		score = playerRef->FindComponentByType<ScoreComponent>();
+		return;
+	}
 
 	int healthText = health->GetCurrentHealth();
 	int scoreText = score->GetCurrentScore();
-
-
 
 	if (health->GetCurrentHealth() > 0)
 	{
@@ -48,15 +69,3 @@ void UI::Tick()
 	}
 }
 
-void UI::EndPlay()
-{
-}
-
-void UI::RenderScore(TextRenderComponent textRenderer, int score, exVector2 positionToRender)
-{
-	
-}
-
-void UI::RenderHealth(TextRenderComponent textRenderer, int score, exVector2 positionToRender)
-{
-}

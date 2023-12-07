@@ -59,28 +59,3 @@ void ControllerFSM::ChangeState(std::shared_ptr<State> newState)
 	mCurrentState->EnterState();
 
 }
-
-//////////////// TrafficLightFSM /////////////////////////
-
-void TrafficLightFSM::BeginPlay()
-{
-
-	// creating states
-	AddState(std::make_shared<GreenLight>());
-	AddState(std::make_shared<YellowLight>());
-	AddState(std::make_shared<RedLight>());
-
-
-	mCurrentState = mStates[0];
-	ControllerFSM::BeginPlay();
-}
-
-void TrafficLightFSM::EndPlay()
-{
-}
-
-void TrafficLightFSM::Tick()
-{
-	ControllerFSM::Tick();
-
-}

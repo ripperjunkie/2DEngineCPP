@@ -123,8 +123,6 @@ void MyGame::Run( float fDeltaT )
 	//int x = 0;
 	//SDL_GetMouseState(&x, &y); // Get mouse position x, y	
 
-
-
 	std::thread renderThread(&RenderingEngine::Render, RenderingEngine::GetInstance(), mEngine);
 	std::thread physicsThread(&PhysicsEngine::UpdatePhysics, PhysicsEngine::GetInstance());
 	std::thread collisionThread(&CollisionEngine::UpdateCollision, CollisionEngine::GetInstance());

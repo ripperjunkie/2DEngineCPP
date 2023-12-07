@@ -1,6 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
+#include <functional>
+
 #include "Engine/Components/Component.h"
+
+typedef std::function<void(int Damage)> OnTakeDamageSignature;
+
 
 class HealthComponent:public Component
 {
@@ -21,5 +26,7 @@ public:
 
 	int mMaxHealth;
 	int mCurrHealth;
+
+	OnTakeDamageSignature OnTakeDamageDelegate;
 };
 
