@@ -1,8 +1,8 @@
 #include "BoxRenderComponent.h"
 #include "Engine/Components/Transform.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 
-BoxRenderComponent::BoxRenderComponent(std::shared_ptr<GameObject> owner, float width, float height, exColor color /* = */)
+BoxRenderComponent::BoxRenderComponent(std::shared_ptr<Entity> owner, float width, float height, exColor color /* = */)
 	: RenderingComponent(owner, color)
 {
 	mWidth = width;

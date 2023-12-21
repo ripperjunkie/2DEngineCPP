@@ -1,22 +1,20 @@
 #pragma once
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 
 class PhysicsComponent;
 class BoxRenderComponent;
 class BoxColliderComponent;
-class ScoreComponent;
-class HealthComponent;
 
-class Food : public GameObject
+class Food : public Entity
 {
 
 public:
 
 	Food(FTransform transform);
 
-	virtual void BeginPlay();
+	virtual void WorldEnter();
 	virtual void Tick();
-	virtual void EndPlay();
+	virtual void WorldExit();
 	void RandomizeVelocity();
 	void ResetPosition();
 

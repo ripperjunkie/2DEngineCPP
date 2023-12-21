@@ -1,7 +1,7 @@
 #include "ColliderComponent.h"
 #include "Engine/Managers/CollisionEngine.h"
 
-CollisionComponent::CollisionComponent(std::shared_ptr<GameObject> owner) : Component(owner)
+CollisionComponent::CollisionComponent(std::shared_ptr<Entity> owner) : Component(owner)
 {
 
 }
@@ -14,7 +14,7 @@ void CollisionComponent::BeginPlay()
 	}
 
 	// lambda binding
-	collisionDelegate = [this](std::shared_ptr<GameObject> otherActor)
+	collisionDelegate = [this](std::shared_ptr<Entity> otherActor)
 	{
 		OnCollisionOverlap(otherActor);
 	};
@@ -50,7 +50,7 @@ void CollisionComponent::StopListenToCollision(CollisionEventSignature delegateT
 	//std::erase(mCollisionEvents, delegateToRemove);
 }
 
-void CollisionComponent::OnCollisionOverlap(std::shared_ptr<GameObject> otherActor)
+void CollisionComponent::OnCollisionOverlap(std::shared_ptr<Entity> otherActor)
 {
 	
 	if (otherActor)

@@ -1,10 +1,10 @@
 #include "RenderingComponent.h"
 #include "Engine/Components/Transform.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include "Engine/Managers/RenderingEngine.h"
 
 
-RenderingComponent::RenderingComponent(std::shared_ptr<GameObject> owner, exColor color)
+RenderingComponent::RenderingComponent(std::shared_ptr<Entity> owner, exColor color)
     : Component(owner)
 {
     this->mColor = color;

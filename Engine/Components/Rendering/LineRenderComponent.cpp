@@ -1,8 +1,8 @@
 #include "LineRenderComponent.h"
 #include "Engine/Components/Transform.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 
-LineRenderComponent::LineRenderComponent(std::shared_ptr<GameObject> owner, float length, float thickness, exColor color)
+LineRenderComponent::LineRenderComponent(std::shared_ptr<Entity> owner, float length, float thickness, exColor color)
 	: RenderingComponent(owner, color)
 {
 	mLength = length;

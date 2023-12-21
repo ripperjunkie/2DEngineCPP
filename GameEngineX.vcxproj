@@ -147,7 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CoreMinimal.h" />
-    <ClInclude Include="Engine\Managers\GameObjectManager.h" />
+    <ClInclude Include="Engine\Managers\EntityManager.h" />
     <ClInclude Include="Engine\Managers\PhysicsEngine.h" />
     <ClInclude Include="Engine\Managers\RenderingEngine.h" />
     <ClInclude Include="Engine\Managers\World.h" />
@@ -168,7 +168,7 @@
     <ClInclude Include="Engine\Components\Rendering\RenderingComponent.h" />
     <ClInclude Include="Engine\Components\Rendering\TextRenderComponent.h" />
     <ClInclude Include="Engine\Components\Transform.h" />
-    <ClInclude Include="Engine\GameFramework\GameObject.h" />
+    <ClInclude Include="Engine\GameFramework\Entity.h" />
     <ClInclude Include="Engine\Public\EngineInterface.h" />
     <ClInclude Include="Engine\Public\EngineTypes.h" />
     <ClInclude Include="Engine\Public\SDL.h" />
@@ -196,8 +196,8 @@
     <ClCompile Include="Engine\Components\Rendering\CircleRenderComponent.cpp" />
     <ClCompile Include="Engine\Components\Rendering\RenderingComponent.cpp" />
     <ClCompile Include="Engine\Components\Transform.cpp" />
-    <ClCompile Include="Engine\GameFramework\GameObject.cpp" />
-    <ClCompile Include="Engine\Managers\GameObjectManager.cpp" />
+    <ClCompile Include="Engine\GameFramework\Entity.cpp" />
+    <ClCompile Include="Engine\Managers\EntityManager.cpp" />
     <ClCompile Include="Engine\Managers\PhysicsEngine.cpp" />
     <ClCompile Include="Engine\Managers\RenderingEngine.cpp" />
     <ClCompile Include="Engine\Components\Component.cpp" />

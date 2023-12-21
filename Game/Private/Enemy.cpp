@@ -8,13 +8,13 @@
 
 
 
-Enemy::Enemy(FTransform transform) : GameObject(transform)
+Enemy::Enemy(FTransform transform) : Entity(transform)
 {
 	
 }
 
 
-void Enemy::BeginPlay()
+void Enemy::WorldEnter()
 {
 	float intialSize = 15.f;
 
@@ -33,18 +33,14 @@ void Enemy::BeginPlay()
 	{
 		mPhysComp = AddComponent<PhysicsComponent>();
 	}
-	
-	
-	//this->FindComponentByType<PhysicsComponent>()->SetVelocity(exVector2({ 0.0f,1.0f }));
 
-	GameObject::BeginPlay();
-
+	Entity::WorldEnter();
 	mCircleRenderComp->SetColor(RED);
 }
 
 void Enemy::Tick()
 {
-	GameObject::Tick();
+	Entity::Tick();
 
 	exVector2 currPosition = mTransformComp->GetPosition();
 	float randX = float(Random<int>::RandomRange(0, kViewportWidth));
@@ -65,9 +61,9 @@ void Enemy::Tick()
 	}
 }
 
-void Enemy::EndPlay()
+void Enemy::WorldExit()
 {
-	GameObject::EndPlay();
+	Entity::WorldExit();
 
 	
 }

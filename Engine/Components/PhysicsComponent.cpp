@@ -1,13 +1,13 @@
 #include "PhysicsComponent.h"
 
 #include "Engine/Components/Transform.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include "Engine/Managers/PhysicsEngine.h"
 
 #include <algorithm>
 #include <memory>
 
-PhysicsComponent::PhysicsComponent(std::shared_ptr<GameObject> owner, exVector2 velocity)
+PhysicsComponent::PhysicsComponent(std::shared_ptr<Entity> owner, exVector2 velocity)
 	: Component(owner)
 {
 

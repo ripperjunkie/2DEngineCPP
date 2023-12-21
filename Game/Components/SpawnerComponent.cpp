@@ -1,9 +1,9 @@
 #include "SpawnerComponent.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 
 
 
-SpawnerComponent::SpawnerComponent(std::shared_ptr<GameObject> owner, std::shared_ptr<GameObject> objectToSpawn):Component(owner)
+SpawnerComponent::SpawnerComponent(std::shared_ptr<Entity> owner, std::shared_ptr<Entity> objectToSpawn):Component(owner)
 {
 	mObjectToSpawn = objectToSpawn;
 }
@@ -27,6 +27,6 @@ void SpawnerComponent::Tick()
 
 void SpawnerComponent::SpawnObject()
 {
-	std::shared_ptr<GameObject> newSpawn;
+	std::shared_ptr<Entity> newSpawn;
 	
 }

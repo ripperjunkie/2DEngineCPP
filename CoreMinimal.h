@@ -15,6 +15,5 @@
 
 
 #define LOG(x) std::cout << x << std::endl
-#define PI 3.141592653589793238
 
 

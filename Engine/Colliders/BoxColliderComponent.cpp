@@ -1,9 +1,9 @@
 #include "BoxColliderComponent.h"
 #include "Engine/Colliders/CircleColliderComponent.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include "Engine/Components/Transform.h"
 
-BoxColliderComponent::BoxColliderComponent(std::shared_ptr<GameObject> owner, float width, float height)
+BoxColliderComponent::BoxColliderComponent(std::shared_ptr<Entity> owner, float width, float height)
 	: CollisionComponent(owner)
 {
 	mWidth = width;

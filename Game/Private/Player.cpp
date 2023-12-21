@@ -3,7 +3,6 @@
 // Engine 
 #include "Engine/Colliders/CircleColliderComponent.h"
 #include "Engine/Components/Rendering/CircleRenderComponent.h"
-#include "Engine/Components/PhysicsComponent.h"
 #include "Engine/Managers/World.h"
 #include "Engine/Public/EpicenterMath.h"
 
@@ -18,14 +17,14 @@
 #define INITIAL_HP 5
 
 
-Player::Player(FTransform transform) : GameObject(transform)
+Player::Player(FTransform transform) : Entity(transform)
 {
 	movSpeed = 150.f;
 }
 
-void Player::BeginPlay()
+void Player::WorldEnter()
 {
-	GameObject::BeginPlay();
+	Entity::WorldEnter();
 
 	_initialTransform = transform;
 
@@ -67,7 +66,7 @@ void Player::BeginPlay()
 	{
 		mCircleColliderComp->ListenToCollision(collisionDelegate);
 	}
-	collisionDelegate = [this](std::shared_ptr<GameObject> otherActor)
+	collisionDelegate = [this](std::shared_ptr<Entity> otherActor)
 	{
 		this->OnCollisionOverlap(otherActor);
 	};
@@ -80,15 +79,15 @@ void Player::BeginPlay()
 
 void Player::Tick()
 {
-	GameObject::Tick();
+	Entity::Tick();
 
 	ScreenBounds();
 	Movement();
 }
 
-void Player::EndPlay()
+void Player::WorldExit()
 {
-	GameObject::EndPlay();
+	Entity::WorldExit();
 }
 
 void Player::Movement()
@@ -151,7 +150,7 @@ void Player::ScreenBounds()
 
 }
 
-void Player::OnCollisionOverlap(std::shared_ptr<GameObject> otherActor)
+void Player::OnCollisionOverlap(std::shared_ptr<Entity> otherActor)
 {
 	// Collided with enemy
 	if (std::shared_ptr<Enemy> enemy = std::dynamic_pointer_cast<Enemy>(otherActor))
@@ -191,7 +190,5 @@ void Player::OnTakeDamage(int DamageTaken)
 
 		// reset player life
 		mHealthComp->mCurrHealth = mHealthComp->mMaxHealth;
-
-
 	}
 }

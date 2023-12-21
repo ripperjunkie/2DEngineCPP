@@ -3,7 +3,7 @@
 
 
 
-ScoreComponent::ScoreComponent(std::shared_ptr<GameObject> owner): Component(owner)
+ScoreComponent::ScoreComponent(std::shared_ptr<Entity> owner): Component(owner)
 {
 	mCurrScore = 0;
 }

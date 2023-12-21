@@ -9,10 +9,10 @@ class Transform;
 // so that we can use shared_from_this()
 class RenderingComponent : public Component, public std::enable_shared_from_this<RenderingComponent> 
 {	
-	friend class GameObject;
+	friend class Entity;
 public:
 	virtual void Render(exEngineInterface* engineInterface){}
-	RenderingComponent(std::shared_ptr<GameObject> owner, exColor color = exColor{255,0,0,255});
+	RenderingComponent(std::shared_ptr<Entity> owner, exColor color = exColor{255,0,0,255});
 	RenderingComponent() = delete;
 
 

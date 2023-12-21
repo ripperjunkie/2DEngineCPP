@@ -7,14 +7,14 @@
 #include "Engine/Managers/Random.h"
 
 
-Food::Food(FTransform transform) : GameObject(transform)
+Food::Food(FTransform transform) : Entity(transform)
 {
 }
 
 
-void Food::BeginPlay()
+void Food::WorldEnter()
 {
-	GameObject::BeginPlay();
+	Entity::WorldEnter();
 
 	if (!mCircleRenderComp)
 	{
@@ -39,7 +39,7 @@ void Food::BeginPlay()
 
 void Food::Tick()
 {
-	GameObject::Tick();
+	Entity::Tick();
 
 	exVector2 currPosition = mTransformComp->GetPosition();
 
@@ -52,9 +52,9 @@ void Food::Tick()
 
 }
 
-void Food::EndPlay()
+void Food::WorldExit()
 {
-	GameObject::EndPlay();
+	Entity::WorldExit();
 
 }
 

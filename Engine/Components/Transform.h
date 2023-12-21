@@ -8,7 +8,7 @@ class Transform : public Component
 public:
 
 	Transform() = delete;
-	Transform(std::shared_ptr<GameObject> owner, exVector2 loc, exVector2 rot, exVector2 scale);
+	Transform(std::shared_ptr<Entity> owner, exVector2 loc, exVector2 rot, exVector2 scale);
 
 	virtual EComponentTypes GetComponentType() const override;
 

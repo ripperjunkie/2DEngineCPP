@@ -4,9 +4,6 @@
 #include "Engine/Components/ControllerFSM.h"
 #include "Engine/Components/Rendering/RenderingComponent.h"
 
-
-#include <iostream>
-
 class State
 {
 public:

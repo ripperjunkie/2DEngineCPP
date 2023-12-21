@@ -15,7 +15,7 @@ class PhysicsComponent : public Component, public std::enable_shared_from_this<P
 	friend class PhysicsEngine;
 public:
 
-	PhysicsComponent(std::shared_ptr<GameObject> owner, exVector2 velocity = {0.0f, 0.0f});
+	PhysicsComponent(std::shared_ptr<Entity> owner, exVector2 velocity = {0.0f, 0.0f});
 	PhysicsComponent() = delete;
 	
 	virtual void ComputePhysics();

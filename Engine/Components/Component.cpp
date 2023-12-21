@@ -2,7 +2,7 @@
 
 
 
-Component::Component(std::shared_ptr<GameObject> owner)
+Component::Component(std::shared_ptr<Entity> owner)
 {
 	mOwner = owner;
 }

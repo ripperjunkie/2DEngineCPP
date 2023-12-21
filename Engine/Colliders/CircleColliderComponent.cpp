@@ -1,9 +1,9 @@
 #include "CircleColliderComponent.h"
 #include "Engine/Colliders/BoxColliderComponent.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include "Engine/Components/Transform.h"
 
-CircleColliderComponent::CircleColliderComponent(std::shared_ptr<GameObject> owner, float radius)
+CircleColliderComponent::CircleColliderComponent(std::shared_ptr<Entity> owner, float radius)
 	: CollisionComponent(owner)
 {
 	mRadius = radius;

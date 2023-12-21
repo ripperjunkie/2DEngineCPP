@@ -9,7 +9,7 @@ class SpawnerComponent : public Component
 public:
 
 	SpawnerComponent() = delete;
-	SpawnerComponent(std::shared_ptr<GameObject> owner, std::shared_ptr<GameObject> objectToSpawn);
+	SpawnerComponent(std::shared_ptr<Entity> owner, std::shared_ptr<Entity> objectToSpawn);
 
 	virtual EComponentTypes GetComponentType() const override;
 
@@ -20,6 +20,6 @@ public:
 	void SpawnObject();
 
 	exVector2 newPosition;
-	std::shared_ptr<GameObject> mObjectToSpawn;
+	std::shared_ptr<Entity> mObjectToSpawn;
 };
 

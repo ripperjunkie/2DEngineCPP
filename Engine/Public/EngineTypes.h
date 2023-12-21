@@ -78,3 +78,4 @@ struct exColor
 #define BLANK      exColor{ 0, 0, 0, 0 }           // Blank (Transparent)
 #define MAGENTA    exColor{ 255, 0, 255, 255 }     // Magenta
 #define RAYWHITE   exColor{ 245, 245, 245, 255 }   // My own White 
+

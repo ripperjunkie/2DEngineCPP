@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include "3rdParty/SDL/SDL2-2.0.3/include/SDL_scancode.h"
 
 #include "Engine/Colliders/ColliderComponent.h"
@@ -15,13 +15,14 @@ class CircleColliderComponent;
 class ScoreComponent;
 class HealthComponent;
 
-class Player : public GameObject
+class Player : public Entity
 {
 public:
 	Player(FTransform transform);
-	virtual void BeginPlay();
+	virtual void WorldEnter();
+	virtual void WorldExit();
 	virtual void Tick();
-	virtual void EndPlay();
+
 	void Movement();
 	void ScreenBounds();
 
@@ -34,9 +35,9 @@ public:
 	std::shared_ptr<HealthComponent> mHealthComp;
 	std::shared_ptr<ScoreComponent> mScoreComp;
 
-	// Collision related
+	// Collision related, callback and overlap
 	CollisionEventSignature collisionDelegate;
-	void OnCollisionOverlap(std::shared_ptr<GameObject> otherActor);
+	void OnCollisionOverlap(std::shared_ptr<Entity> otherActor);
 
 	const unsigned char* pState;
 	float movSpeed;

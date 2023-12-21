@@ -6,7 +6,7 @@ class BoxColliderComponent : public CollisionComponent
 {
 public:
 	BoxColliderComponent() = delete;
-	BoxColliderComponent(std::shared_ptr<GameObject> owner, float width = 1.f, float height = 1.f);
+	BoxColliderComponent(std::shared_ptr<Entity> owner, float width = 1.f, float height = 1.f);
 
 	virtual EComponentTypes GetComponentType() const;
 	float GetWidth() const;

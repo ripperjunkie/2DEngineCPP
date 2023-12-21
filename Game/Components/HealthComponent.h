@@ -12,7 +12,7 @@ class HealthComponent:public Component
 public:
 
 	HealthComponent() = delete;
-	HealthComponent(std::shared_ptr<GameObject> owner, int maxHealth);
+	HealthComponent(std::shared_ptr<Entity> owner, int maxHealth);
 
 
 	virtual EComponentTypes GetComponentType() const override;

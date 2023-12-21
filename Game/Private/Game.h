@@ -14,7 +14,7 @@
 
 
 // Forward declaration
-class GameObject;
+class Entity;
 class Ball;
 class Player;
 class Enemy;

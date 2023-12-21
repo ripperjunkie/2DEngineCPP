@@ -5,11 +5,11 @@
 #include <functional> // function callbacks
 #include <string>
 
-class GameObject;
+class Entity;
 
 /* Using this std::function allow us to use c++ standard libraries to create function pointers with
 more advanced features such as accessing private members*/
-typedef std::function<void(std::shared_ptr<GameObject> otherActor)> CollisionEventSignature;
+typedef std::function<void(std::shared_ptr<Entity> otherActor)> CollisionEventSignature;
 
 class CollisionComponent : public Component, public std::enable_shared_from_this<CollisionComponent>
 {
@@ -34,7 +34,7 @@ public:
 	virtual bool IsCollisionDetected(std::shared_ptr<CollisionComponent> otherComponent) = 0;
 	void ListenToCollision(CollisionEventSignature delegateToAdd);
 	void StopListenToCollision(CollisionEventSignature delegateToRemove);
-	void OnCollisionOverlap(std::shared_ptr<GameObject> otherActor);
+	void OnCollisionOverlap(std::shared_ptr<Entity> otherActor);
 #pragma endregion
 
 	CollisionEventSignature collisionDelegate;
@@ -43,13 +43,13 @@ public:
 		return (mOwner == other.mOwner);
 	}
 
-	std::shared_ptr<GameObject> GetOwner() const
+	std::shared_ptr<Entity> GetOwner() const
 	{
 		return mOwner;
 	}
 
 protected:
-	CollisionComponent(std::shared_ptr<GameObject> owner);
+	CollisionComponent(std::shared_ptr<Entity> owner);
 
 private:
 	std::vector<CollisionEventSignature> mCollisionEvents = {};

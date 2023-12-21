@@ -1,6 +1,6 @@
 #include "HealthComponent.h"
 
-HealthComponent::HealthComponent(std::shared_ptr<GameObject> owner, int maxHealth) : Component(owner)
+HealthComponent::HealthComponent(std::shared_ptr<Entity> owner, int maxHealth) : Component(owner)
 {
 	mMaxHealth = maxHealth;
 	mCurrHealth = maxHealth;

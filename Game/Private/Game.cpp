@@ -2,7 +2,7 @@
 
 // Managers
 #include "Engine/Managers/RenderingEngine.h"
-#include "Engine/Managers/GameObjectManager.h"
+#include "Engine/Managers/EntityManager.h"
 #include "Engine/Managers/PhysicsEngine.h"
 #include "Engine/Managers/CollisionEngine.h"
 
@@ -16,11 +16,14 @@
 #include "Engine/Managers/Random.h"
 #include "Engine/Managers/World.h"
 
-const char* gWindowName = "Sample EngineX Game";
+const char* gWindowName = "Sample Epicenter Game Engine";
 
 
 #define ENEMIES_AMOUNT 5
 #define FOOD_AMOUNT 5
+
+#define DEFAULT_FONT "Resources/04B_21.ttf"
+#define FONT_SIZE 32 
 
 
 MyGame::MyGame()
@@ -40,12 +43,12 @@ MyGame::~MyGame()
 void MyGame::Initialize( exEngineInterface* pEngine )
 {
 	mEngine = pEngine;
-	mFontID = mEngine->LoadFont("Resources/04B_21.ttf", 32);
+	mFontID = mEngine->LoadFont(DEFAULT_FONT, FONT_SIZE);
 
 	FTransform transform = FTransform{ { kViewportWidth / 2, kViewportHeight / 2},{250.f,250.f },{250.f,250.f } };
 
 	// Spawning player 
-	PlayerRef = GAME_OBJECT_ENGINE->SpawnGameObject<Player>(transform);
+	PlayerRef = ENTITY_MANAGER->SpawnEntity<Player>(transform);
 
 	// Spawning enemies
 	for (int i = 0; i < ENEMIES_AMOUNT; ++i)
@@ -57,7 +60,7 @@ void MyGame::Initialize( exEngineInterface* pEngine )
 
 		FTransform transform = FTransform{ { _x, _y},{100.0f, 100.0f },{200.0f, 200.0f} };
 
-		std::shared_ptr<Enemy> gameObject = GAME_OBJECT_ENGINE->SpawnGameObject<Enemy>(transform);
+		std::shared_ptr<Enemy> gameObject = ENTITY_MANAGER->SpawnEntity<Enemy>(transform);
 		gameObject->RandomizeVelocity();
 	}
 
@@ -72,21 +75,21 @@ void MyGame::Initialize( exEngineInterface* pEngine )
 
 		FTransform transform = FTransform{ { _x, _y},{100.0f, 100.0f },{20.0f, 20.0f} };
 
-		std::shared_ptr<Food> gameObject = GAME_OBJECT_ENGINE->SpawnGameObject<Food>(transform);
+		std::shared_ptr<Food> gameObject = ENTITY_MANAGER->SpawnEntity<Food>(transform);
 		gameObject->RandomizeVelocity();
 	}
 
 	// Spawning ui
 	FTransform HUDTransform = FTransform{ { 0.f, 0.f},{250.f,250.f },{250.f,250.f } };
-	std::shared_ptr<UI> Hud = GAME_OBJECT_ENGINE->SpawnGameObject<UI>(HUDTransform);
+	std::shared_ptr<UI> Hud = ENTITY_MANAGER->SpawnEntity<UI>(HUDTransform);
 
 	if (Hud)
 	{
 		Hud->playerRef = PlayerRef;
 	}
 
-
-	GAME_OBJECT_ENGINE->Initialize();
+	// Call WorldEnter function in every entity.
+	ENTITY_MANAGER->Initialize();
 }
 
 
@@ -119,10 +122,6 @@ void MyGame::OnEventsConsumed()
 
 void MyGame::Run( float fDeltaT )
 {
-	//int y = 0;
-	//int x = 0;
-	//SDL_GetMouseState(&x, &y); // Get mouse position x, y	
-
 	std::thread renderThread(&RenderingEngine::Render, RenderingEngine::GetInstance(), mEngine);
 	std::thread physicsThread(&PhysicsEngine::UpdatePhysics, PhysicsEngine::GetInstance());
 	std::thread collisionThread(&CollisionEngine::UpdateCollision, CollisionEngine::GetInstance());
@@ -131,7 +130,7 @@ void MyGame::Run( float fDeltaT )
 	physicsThread.join();
 	collisionThread.join();
 
-	GAME_OBJECT_ENGINE->Update();
+	ENTITY_MANAGER->Update();
 	WORLD->dt = fDeltaT;
 
 }

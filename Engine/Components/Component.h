@@ -5,7 +5,7 @@
 
 
 // forward declaration - optimize compile time
-class GameObject;
+class Entity;
 
 typedef std::vector<std::shared_ptr<class Component>> ComponentList;
 
@@ -24,7 +24,7 @@ class Component
 {
 public:
 	Component() = delete;
-	Component(std::shared_ptr<GameObject> owner);
+	Component(std::shared_ptr<Entity> owner);
 
 	// Mark it as abstract (doesn't require implementation on this class)
 	virtual EComponentTypes GetComponentType() const = 0;
@@ -33,7 +33,7 @@ public:
 	virtual void Tick();
 
 protected:
-	std::shared_ptr<GameObject> mOwner;
+	std::shared_ptr<Entity> mOwner;
 
 
 };

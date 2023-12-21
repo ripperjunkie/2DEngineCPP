@@ -1,5 +1,5 @@
 //
-// * ENGINE-X
+// * EPICENTER-ENGINE
 //
 // + SDL.h
 // includes all of the SDL files

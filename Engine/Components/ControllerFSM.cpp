@@ -1,6 +1,6 @@
 #include "ControllerFSM.h"
 
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include "Engine/Components/Rendering/RenderingComponent.h"
 #include "Engine/Public/EngineTypes.h"
 #include "Engine/Public/State.h"
@@ -8,7 +8,7 @@
 
 //////////////// ControllerFSM /////////////////////////
 
-ControllerFSM::ControllerFSM(std::shared_ptr<GameObject> owner) : Component(owner)
+ControllerFSM::ControllerFSM(std::shared_ptr<Entity> owner) : Component(owner)
 {
 	renderComp = mOwner->FindComponentByType<RenderingComponent>();
 }

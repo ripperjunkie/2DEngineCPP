@@ -4,7 +4,7 @@
 class BoxRenderComponent : public RenderingComponent
 {
 public:
-	BoxRenderComponent(std::shared_ptr<GameObject> owner, 
+	BoxRenderComponent(std::shared_ptr<Entity> owner, 
 		float width = 0.0f, float height = 100.0f, exColor color = { 255,0,0,255 });
 
 

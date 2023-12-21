@@ -12,7 +12,7 @@ class ControllerFSM : public Component
 public:
 	// Traffic light : state types
 	ControllerFSM() = delete;
-	ControllerFSM(std::shared_ptr<GameObject> owner);
+	ControllerFSM(std::shared_ptr<Entity> owner);
 	virtual EComponentTypes GetComponentType() const;
 
 	void AddState(std::shared_ptr<State> state);

@@ -1,6 +1,6 @@
 #include "Transform.h"
 
-Transform::Transform(std::shared_ptr<GameObject> owner, exVector2 loc, exVector2 rot, exVector2 scale) : Component(owner),
+Transform::Transform(std::shared_ptr<Entity> owner, exVector2 loc, exVector2 rot, exVector2 scale) : Component(owner),
 mLocation(loc),
 mRotation(rot),
 mScale(scale)

@@ -1,6 +1,6 @@
 #pragma once
 #include "Engine/Components/Rendering/TextRenderComponent.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 #include <string>
 
 
@@ -9,7 +9,7 @@ class Player;
 class HealthComponent;
 class ScoreComponent;
 
-class UI : public GameObject
+class UI : public Entity
 {
 public:
 
@@ -17,9 +17,9 @@ public:
 	UI(FTransform transform);
 	~UI();
 
-	virtual void BeginPlay();
+	virtual void WorldEnter();
 	virtual void Tick();
-	virtual void EndPlay();
+	virtual void WorldExit();
 
 
 	std::shared_ptr<TextRenderComponent> mTextRenderComponent;

@@ -1,8 +1,8 @@
 #include "TextRenderComponent.h"
 #include "Engine/Components/Transform.h"
-#include "Engine/GameFramework/GameObject.h"
+#include "Engine/GameFramework/Entity.h"
 
-TextRenderComponent::TextRenderComponent(std::shared_ptr<GameObject> owner,
+TextRenderComponent::TextRenderComponent(std::shared_ptr<Entity> owner,
 	int fontID /*= 1*/,
 	std::string&& text /*= "hello"*/,
 	exColor color /*= { 255,0,0,255 }*/) : RenderingComponent(owner, color)

@@ -37,7 +37,7 @@
     <ClInclude Include="Engine\Colliders\BoxColliderComponent.h" />
     <ClInclude Include="Engine\Colliders\CircleColliderComponent.h" />
     <ClInclude Include="Engine\Colliders\ColliderComponent.h" />
-    <ClInclude Include="Engine\GameFramework\GameObject.h" />
+    <ClInclude Include="Engine\GameFramework\Entity.h" />
     <ClInclude Include="Engine\Components\Rendering\BoxRenderComponent.h" />
     <ClInclude Include="Engine\Components\Rendering\CircleRenderComponent.h" />
     <ClInclude Include="Engine\Components\Rendering\LineBoxRenderComponent.h" />
@@ -62,7 +62,7 @@
     <ClInclude Include="Engine\Public\EpicenterMath.h" />
     <ClInclude Include="Game\Private\UI.h" />
     <ClInclude Include="CoreMinimal.h" />
-    <ClInclude Include="Engine\Managers\GameObjectManager.h" />
+    <ClInclude Include="Engine\Managers\EntityManager.h" />
     <ClInclude Include="Engine\Managers\PhysicsEngine.h" />
     <ClInclude Include="Engine\Managers\RenderingEngine.h" />
     <ClInclude Include="Game\Private\Game.h" />
@@ -80,13 +80,13 @@
     <ClCompile Include="Engine\Managers\RenderingEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Managers\GameObjectManager.cpp">
+    <ClCompile Include="Engine\Managers\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Managers\PhysicsEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GameFramework\GameObject.cpp">
+    <ClCompile Include="Engine\GameFramework\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Components\PhysicsComponent.cpp">

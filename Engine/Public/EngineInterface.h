@@ -53,6 +53,9 @@ public:
 								// draw text with a given loaded font
 	virtual void				DrawText( int nFontID, const exVector2& v2Position, const char* szText, const exColor& color, int nLayer ) = 0;
 
+//	virtual void				CreateTexture(SDL_Renderer* renderer, Uint32 format, int access, int w, int h) = 0;
+	//SDL_CreateTexture(SDL_Renderer * renderer,  Uint32 format,int access, int w,	int h);
+
 };
 
 //-----------------------------------------------------------------

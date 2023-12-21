@@ -6,7 +6,7 @@ class CircleColliderComponent : public CollisionComponent
 {
 public:
 	CircleColliderComponent() = delete;
-	CircleColliderComponent(std::shared_ptr<GameObject> owner, float radius = 1.f);
+	CircleColliderComponent(std::shared_ptr<Entity> owner, float radius = 1.f);
 
 	virtual EComponentTypes GetComponentType() const;
 

@@ -3,14 +3,14 @@
 #include "Engine/Components/Component.h"
 
 
-class GameObject;
+class Entity;
 
 class ScoreComponent:public Component
 {
 public:
 
 	ScoreComponent() = delete;
-	ScoreComponent(std::shared_ptr<GameObject> owner);
+	ScoreComponent(std::shared_ptr<Entity> owner);
 
 
 	virtual EComponentTypes GetComponentType() const override;

@@ -7,7 +7,7 @@
 #include "Game/Private/Player.h"
 
 
-UI::UI(FTransform transform) : GameObject(transform)
+UI::UI(FTransform transform) : Entity(transform)
 {
 }
 
@@ -15,7 +15,7 @@ UI::~UI()
 {
 }
 
-void UI::BeginPlay()
+void UI::WorldEnter()
 {
 	if (!mTextRenderComponent)
 	{
@@ -28,17 +28,17 @@ void UI::BeginPlay()
 		score = playerRef->FindComponentByType<ScoreComponent>();
 	}
 
-	GameObject::BeginPlay();
+	Entity::WorldEnter();
 }
 
 void UI::Tick()
 {
-	GameObject::Tick();
+	Entity::Tick();
 
 	UpdateUI();
 }
 
-void UI::EndPlay()
+void UI::WorldExit()
 {
 }
 

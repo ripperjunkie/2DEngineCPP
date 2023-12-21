@@ -6,6 +6,8 @@
 
 #define WORLD World::GetInstance()
 
+class Entity;
+
 
 class World
 {
@@ -24,8 +26,6 @@ public:
 	{
 		return dt;
 	}
-
-
 
 private:
 
